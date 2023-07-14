@@ -49,7 +49,7 @@ console.log(getUsersFromDatabase(userRecords));
  * Повертає Видалений останній елемент або `undefined`, якщо масив порожній.
  */
 function removeLastElement(arr) {
-  if (arr === []) {
+  if (arr.length === 0) {
     return undefined;
   } else {
     arr.pop();
@@ -309,10 +309,10 @@ console.log(sortByKey(unsortedArray, "age"));
  *Повертає: Результат перевірки.
  */
 function customEvery(arr, condition) {
-  if (!Array.isArray(arr) || typeof condition == undefined) {
+  if (!Array.isArray(arr) || typeof condition !== "function") {
     return false;
   } else {
-    return arr.every((elem) => condition);
+    return arr.every(condition);
   }
   // Перевірка вхідних параметрів
   // якщо arr не масив повертаємо false
@@ -366,7 +366,7 @@ console.log(customFill([1, 2, 3, 4, 5], 0, 1, 4)); // Виведе [ 1, 0, 0, 0,
  * Повертає - Видалений елемент та оновлений масив або undefined, якщо масив порожній.
  */
 function customShift(arr) {
-  if (!Array.isArray(arr) || arr === []) {
+  if (!Array.isArray(arr) || arr.length === 0) {
     return undefined;
   } else {
     const shiftedElement = arr.shift();
@@ -427,7 +427,7 @@ console.log(customUnshift([2, 3, 4, 5], 1, 0));
  * Повертає: Результат перевірки.
  */
 function customSome(arr, condition) {
-  if (!Array.isArray(arr) || typeof condition == undefined) {
+  if (!Array.isArray(arr) || typeof condition !== "function") {
     return false;
   } else {
     return arr.some(condition);
